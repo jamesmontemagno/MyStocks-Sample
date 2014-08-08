@@ -7,7 +7,7 @@ Sample app for iOS, Android, and Windows PHone using yahoo stocks API. All busin
 ## Screenshots
 
 ![Android](https://raw.githubusercontent.com/jamesmontemagno/MyStocks-Sample/master/Screenshots/Android.png)
-![iOS](https://raw.githubusercontent.com/jamesmontemagno/MyStocks-Sample/master/Screenshots/iOS)
-![WP](https://raw.githubusercontent.com/jamesmontemagno/MyStocks-Sample/master/Screenshots/Windows.Phone.PNG)
+![iOS](https://raw.githubusercontent.com/jamesmontemagno/MyStocks-Sample/master/Screenshots/iOS.png)
+![WP](https://raw.githubusercontent.com/jamesmontemagno/MyStocks-Sample/master/Screenshots/WindowsPhone.PNG)
 
 
