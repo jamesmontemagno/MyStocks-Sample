@@ -28,7 +28,6 @@ namespace StocksiOS
       barChart = new BarChartView
       {
         Frame = new RectangleF(0, LabelQuote.Frame.Bottom, View.Frame.Width, View.Frame.Height - LabelQuote.Frame.Bottom),
-        LegendHidden = true,
         BarColor = Color.Blue.ToUIColor()
       };
 
@@ -74,7 +73,8 @@ namespace StocksiOS
         barChart.ItemsSource = items.Select(
             s => new BarChart.BarModel
             {
-              Value = s.Value
+              Value = s.Value,
+              Legend = s.Date.Remove(0, 5)
             }).ToList();
       }
 
