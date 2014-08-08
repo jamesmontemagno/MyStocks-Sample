@@ -14,13 +14,14 @@ using System.Collections.Generic;
 
 namespace StocksAndroid
 {
-  [Activity(Label = "StocksAndroid", MainLauncher = true, Icon = "@drawable/icon")]
+  [Activity(Label = "StocksAndroid", MainLauncher = true, Icon = "@drawable/icon", Theme="@android:style/Theme.Holo.Light")]
   public class MainActivity : Activity
   {
     int count = 1;
     StockViewModel viewModel = new StockViewModel();
     BarChartView barChart;
     IEnumerable<BarChart.BarModel> data;
+    LinearLayout mainLayout;
     protected override void OnCreate(Bundle bundle)
     {
       base.OnCreate(bundle);
@@ -35,8 +36,8 @@ namespace StocksAndroid
       var quoteLable = FindViewById<TextView>(Resource.Id.textView1);
       var symbol = FindViewById<EditText>(Resource.Id.editText1);
       var progressBar = FindViewById<ProgressBar>(Resource.Id.progressBar1);
-      barChart = FindViewById<BarChart.BarChartView>(Resource.Id.barChart);
-
+      
+      mainLayout = FindViewById<LinearLayout>(Resource.Id.main);
 
       progressBar.Visibility = ViewStates.Invisible;
       quoteLable.Text = string.Empty;
@@ -75,11 +76,23 @@ namespace StocksAndroid
               s => new BarChart.BarModel
               {
                 Value = s.Value,
-                Legend = s.Date
+                Legend = s.Date.Remove(0, 5),
+                Color = Android.Graphics.Color.Orange
               });
             RunOnUiThread(() =>
             {
+              if(barChart != null)
+                mainLayout.RemoveView(barChart);
+
+              barChart = new BarChartView(this);
               barChart.ItemsSource = data;
+              barChart.BarOffset = 30;
+              barChart.MinimumValue = items.Min(i => i.Value);
+              barChart.LegendColor = Android.Graphics.Color.Black;
+              barChart.BarCaptionOuterColor = Android.Graphics.Color.Black;
+              barChart.BarCaptionFontSize = 28;
+              mainLayout.AddView(barChart, new ViewGroup.LayoutParams(
+              ViewGroup.LayoutParams.FillParent, ViewGroup.LayoutParams.FillParent));
             });
           }
 

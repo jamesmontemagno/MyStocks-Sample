@@ -75,7 +75,7 @@ namespace StocksiOS
             s => new BarChart.BarModel
             {
               Value = s.Value
-            }).Reverse().ToList();
+            }).ToList();
       }
 
       ProgressBar.StopAnimating();

@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:id="@+id/main">
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
@@ -23,11 +24,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Hello" />
-    <Button
-        android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
     <TextView
         android:text="0.00"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -36,14 +32,4 @@
         android:id="@+id/textView1"
         android:gravity="center_horizontal"
         android:layout_marginTop="15dp" />
-    <barchart.BarChartView
-        android:id="@+id/barChart"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        bar_offset="30"
-        bar_color="#3498DB"
-        bar_caption_fontSize="30"
-        bar_caption_fontColor="#FFFFFF"
-        bar_caption_innerColor="#FFFFFF"
-        bar_caption_outerColor="#FFFFFF" />
 </LinearLayout>
